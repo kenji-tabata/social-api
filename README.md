@@ -15,7 +15,7 @@ O `https` é obrigatório em todas as requisições do app login do Facebook, en
  app de login, o site deve está em um dominio com certificado de segurança instalado, isso vale
  também para a máquina local.
 
-Para instalar o certificado digital na máquina local veja em [docs]('docs/instalando-certificado-local.md')
+Para instalar o certificado digital na máquina local veja em [docs](/docs/instalando-certificado-local.md)
 
 
 __Criando uma identificação do aplicativo ou site__
