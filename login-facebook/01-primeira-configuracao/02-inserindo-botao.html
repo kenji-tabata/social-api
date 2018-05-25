@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+
+        <div id="fb-status"></div>
+
+        <!-- botão de login do facebook, com as permissões públicas -->
+        <fb:login-button id="fb-btn-login" scope="public_profile,email" onlogin="checkLoginState();">
+        </fb:login-button>
+
+        <!-- função do botão de login do Facebook -->
+        <script type="text/javascript">
+            function checkLoginState() {
+                FB.getLoginStatus(function(response) {
+                    // imprime o status na tela
+                    document.getElementById("fb-status").innerHTML = "<p>" + response.status + "</p>";
+                    console.log("checkLoginState():", response);
+                });
+            }
+        </script>
+
+        <!-- inicialização do script -->
+        <script type="text/javascript">
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '214759089328950',
+                    cookie     : true,
+                    xfbml      : true,
+                    version    : 'v3.0'
+                });
+                FB.AppEvents.logPageView();
+            };
+
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+
+                js = d.createElement(s); js.id = id;
+                // sdk padrão em português
+                js.src = "https://connect.facebook.net/pt_BR/sdk.js";
+
+                // sdk com debug em português
+                // js.src = "https://connect.facebook.net/pt_BR/sdk/debug.js";
+
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+    </body>
+</html>

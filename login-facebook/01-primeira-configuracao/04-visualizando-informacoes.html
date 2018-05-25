@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+
+        <div id="fb-status"></div>
+
+        <!-- botão de login do facebook, com as permissões públicas -->
+        <fb:login-button id="fb-btn-login" scope="public_profile,email" onlogin="checkLoginState();">
+        </fb:login-button>
+
+        <!-- verifica se o usuário esta ou não conectado no Facebook -->
+        <script type="text/javascript">
+            function statusChangeCallback(response) {
+                console.log("statusChangeCallback():", response);
+
+                // se estiver conectado no Facebook...
+                if (response.status == "connected") {
+                    // carrega o nome, e-mail e foto do usuário logado
+                    FB.api('/me', {fields: 'name, email, picture'}, function (response) {
+                        console.log("logado:", response);
+
+                        // esconde o botão na tela
+                        document.getElementById("fb-btn-login").style.display = "none";
+
+                        // informações do usuário
+                        $html = "<p><img src='" + response.picture.data.url + "' alt='perfil'></p>";
+                        $html += "<p>Seja bem vindo " + response.name + "</p>";
+                        $html += "<p>E-mail do usuário: " + response.email + "</p>";
+
+                        // imprime na tela a mensagem com o nome do usuário logado
+                        document.getElementById("fb-status").innerHTML = $html;
+                    });
+                }
+                // se não estiver conectado no Facebook...
+                else {
+                    document.getElementById("fb-status").innerHTML = "Você não está conectado com o Facebook";
+                    console.log("não logado:");
+                }
+            }
+        </script>
+
+        <!-- função do botão de login do Facebook -->
+        <script type="text/javascript">
+            function checkLoginState() {
+                FB.getLoginStatus(function(response) {
+                    console.log("checkLoginState():", response);
+                    statusChangeCallback(response);
+                });
+            }
+        </script>
+
+        <!-- inicialização do script -->
+        <script type="text/javascript">
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '214759089328950',
+                    cookie     : true,
+                    xfbml      : true,
+                    version    : 'v3.0'
+                });
+                FB.AppEvents.logPageView();
+
+                // checa o status do login
+                FB.getLoginStatus(function(response) {
+                    console.log("getLoginStatus():", response);
+                    statusChangeCallback(response);
+                });
+            };
+
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+
+                js = d.createElement(s); js.id = id;
+                // sdk padrão em português
+                js.src = "https://connect.facebook.net/pt_BR/sdk.js";
+
+                // sdk com debug em português
+                // js.src = "https://connect.facebook.net/pt_BR/sdk/debug.js";
+
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+    </body>
+</html>

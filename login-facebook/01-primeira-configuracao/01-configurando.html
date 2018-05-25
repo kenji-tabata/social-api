@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Facebook: configurando</title>
+    </head>
+    <body>
+        <p>Veja o console do navegador...</p>
+
+        <!-- inicialização do script -->
+        <script type="text/javascript">
+            window.fbAsyncInit = function() {
+                FB.init({
+                    // appId      : '{insira-seu-app-id}',
+                    appId      : '214759089328950',
+                    cookie     : true,
+                    xfbml      : true,
+                    version    : 'v3.0' // última versão em 05/2018
+                });
+                FB.AppEvents.logPageView();
+            };
+
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+
+                js = d.createElement(s); js.id = id;
+                // path do sdk padrão em português
+                // js.src = "https://connect.facebook.net/pt_BR/sdk.js";
+
+                // path do sdk com debug em português
+                js.src = "https://connect.facebook.net/pt_BR/sdk/debug.js";
+
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+    </body>
+</html>
