@@ -6,6 +6,9 @@
     <body>
         <div id="fb-status"></div>
 
+        <!-- App id do Facebook -->
+        <script type="text/javascript" src="../app-id.js"></script>
+
         <!-- inicialização do script -->
         <script type="text/javascript">
             window.fbAsyncInit = function() {
@@ -26,7 +29,7 @@
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id)) return;
                 js = d.createElement(s); js.id = id;
-                js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v3.0&appId={seu-app-id}&autoLogAppEvents=1';
+                js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v3.0&appId=' + app_id + '&autoLogAppEvents=1';
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
