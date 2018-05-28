@@ -1,32 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login Facebook: Botão</title>
+        <title>Login Facebook: Popup Login</title>
     </head>
     <body>
-
-        <div id="fb-status"></div>
-
         <!-- botão de login do facebook, com as permissões públicas -->
-        <fb:login-button id="fb-btn-login" scope="public_profile,email" onlogin="checkLoginState();">
-        </fb:login-button>
+        <fb:login-button id="fb-btn-login" scope="public_profile,email"></fb:login-button>
 
-        <!-- função do botão de login do Facebook -->
-        <script type="text/javascript">
-            function checkLoginState() {
-                FB.getLoginStatus(function(response) {
-                    // imprime o status na tela
-                    document.getElementById("fb-status").innerHTML = "<p>" + response.status + "</p>";
-                    console.log("checkLoginState():", response);
-                });
-            }
-        </script>
+        <!-- App id do Facebook -->
+        <script type="text/javascript" src="../app-id.js"></script>
 
         <!-- inicialização do script -->
         <script type="text/javascript">
             window.fbAsyncInit = function() {
                 FB.init({
-                    appId      : '{insira-seu-app-id}',
+                    appId      : app_id,
                     cookie     : true,
                     xfbml      : true,
                     version    : 'v3.0'

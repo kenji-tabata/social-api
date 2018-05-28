@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Facebook: Botão Status</title>
+    </head>
+    <body>
+        <!-- botão de login do facebook, com as permissões públicas -->
+        <fb:login-button id="fb-btn-login" scope="public_profile,email" onlogin="checkLoginState();">
+        </fb:login-button>
+
+        <!-- mostra o status da conexão -->
+        <div id="fb-status"></div>
+
+        <!-- App id do Facebook -->
+        <script type="text/javascript" src="../app-id.js"></script>
+
+        <!-- inicialização do script -->
+        <script type="text/javascript">
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : app_id,
+                    cookie     : true,
+                    xfbml      : true,
+                    version    : 'v3.0'
+                });
+                FB.AppEvents.logPageView();
+            };
+
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+
+                js = d.createElement(s); js.id = id;
+                // sdk padrão em português
+                js.src = "https://connect.facebook.net/pt_BR/sdk.js";
+
+                // sdk com debug em português
+                // js.src = "https://connect.facebook.net/pt_BR/sdk/debug.js";
+
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        <!-- checa o status da conexão ao clicar no botão de login -->
+        <script type="text/javascript">
+            function checkLoginState() {
+                // retorna o status da conexão com o Facebook
+                FB.getLoginStatus(function(response) {
+                    // imprime o status da conexão com o Facebook na tela
+                    document.getElementById("fb-status").innerHTML = "<p>" + response.status + "</p>";
+                    console.log("checkLoginState():", response);
+                });
+            }
+        </script>
+    </body>
+</html>

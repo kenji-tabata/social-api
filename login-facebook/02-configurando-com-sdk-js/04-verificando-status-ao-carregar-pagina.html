@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login Facebook: configurando</title>
+        <title>Login Facebook: Status</title>
     </head>
     <body>
-        <p>Veja o console do navegador...</p>
+        <!-- mostra o status da conexão -->
+        <div id="fb-status"></div>
 
         <!-- App id do Facebook -->
         <script type="text/javascript" src="../app-id.js"></script>
@@ -19,6 +20,13 @@
                     version    : 'v3.0'
                 });
                 FB.AppEvents.logPageView();
+
+                // checa o status do login ao carregar a página
+                FB.getLoginStatus(function(response) {
+                    console.log("getLoginStatus():", response);
+                    // imprime na tela o status da conexão com o Facebook
+                    document.getElementById("fb-status").innerHTML = response.status;
+                });
             };
 
             (function(d, s, id) {
@@ -26,11 +34,11 @@
                 if (d.getElementById(id)) {return;}
 
                 js = d.createElement(s); js.id = id;
-                // path do sdk padrão em português
-                // js.src = "https://connect.facebook.net/pt_BR/sdk.js";
+                // sdk padrão em português
+                js.src = "https://connect.facebook.net/pt_BR/sdk.js";
 
-                // path do sdk com debug em português
-                js.src = "https://connect.facebook.net/pt_BR/sdk/debug.js";
+                // sdk com debug em português
+                // js.src = "https://connect.facebook.net/pt_BR/sdk/debug.js";
 
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));

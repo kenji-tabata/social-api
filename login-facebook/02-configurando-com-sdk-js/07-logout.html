@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Facebook: logout</title>
+    </head>
+    <body>
+        <!-- mostra o status da conexão -->
+        <div id="fb-status"></div>
+
+        <p><a href='#' onclick='logout();'>Sair</a></p>
+
+        <!-- App id do Facebook -->
+        <script type="text/javascript" src="../app-id.js"></script>
+
+        <!-- inicialização do script -->
+        <script type="text/javascript">
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : app_id,
+                    cookie     : true,
+                    xfbml      : true,
+                    version    : 'v3.0'
+                });
+                FB.AppEvents.logPageView();
+
+                // checa o status do login ao carregar a página
+                FB.getLoginStatus(function(response) {
+                    console.log("getLoginStatus():", response);
+                    // imprime na tela o status da conexão com o Facebook
+                    document.getElementById("fb-status").innerHTML = response.status;
+                });
+            };
+
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+
+                js = d.createElement(s); js.id = id;
+                // sdk padrão em português
+                js.src = "https://connect.facebook.net/pt_BR/sdk.js";
+
+                // sdk com debug em português
+                // js.src = "https://connect.facebook.net/pt_BR/sdk/debug.js";
+
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        <!-- função do link logout do Facebook -->
+        <script type="text/javascript">
+            function logout() {
+                FB.logout(function (response) {
+                    console.log(response);
+                    window.location = "07-logout.html";
+                });
+            }
+        </script>
+    </body>
+</html>
