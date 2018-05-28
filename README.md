@@ -29,4 +29,5 @@ Para instalar o certificado digital na máquina local veja em [docs](/docs/insta
 
 __Aplicativos do Facebook__
 
-. [Login do Facebook](/login-facebook/)
+. [Login do Facebook com gerador de botão do SDK Javascript](/login-facebook/01-login-gerador-botao/)
+. [Login do Facebook com SDK Javascript](/login-facebook/02-configurando-com-sdk-js/)

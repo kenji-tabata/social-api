@@ -10,11 +10,11 @@ Clique em `Configurar` da caixa do `Login do Facebook` e selecione a opção Web
 Informe a URL do site
 
 Leia as instruções de como adicionar o app de login no site utilizando o SDK em Javascript ou
- veja o código completo da [primeira-configuracao](/login-facebook/01-primeira-configuracao/index.php).
+ veja o código completo da [primeira-configuracao com o SDK js](/login-facebook/02-configurando-com-sdk-js/).
 
 Para executar o código de exemplo acesse no navegador o endereço:
 
-https://[seu-ip]//social-api/login-facebook/01-primeira-configuracao/
+https://[seu-ip]//social-api/login-facebook/02-configurado-com-sdk-js/
 
 
 
