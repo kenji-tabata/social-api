@@ -49,6 +49,7 @@ Pode ocorrer também do usuário não permitir o acesso a informação, como por
 Saiba mais sobre:
 
 [análise do aplicativo](https://developers.facebook.com/docs/facebook-login/review)
+
 [permissões](https://developers.facebook.com/docs/facebook-login/permissions/overview)
 
 
