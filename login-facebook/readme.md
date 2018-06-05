@@ -1,6 +1,5 @@
 # Login Facebook
 
-
 ## Developer
 
 __Adicionando e configurando o app Login do Facebook__
