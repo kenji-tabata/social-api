@@ -25,4 +25,7 @@ if (! isset($accessToken)) {
 echo '<h3>Access Token</h3>';
 var_dump($accessToken->getValue());
 
-$_SESSION['fb_access_token'] = (string) $accessToken;
+$_SESSION['fbAccessToken'] = (string) $accessToken;
+
+echo "<p><a href='$url/04-carregar-nome.php'>Nome</a></p>";
+echo "<p><a href='$url/'>Retornar</a></p>";
