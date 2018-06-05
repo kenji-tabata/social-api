@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Status SDK</title>
+    <!--
+        Inicializa o SDK do Linkedin:
+        toda configuração do SDK deve ser adicionada entre as tags script
+        variáveis em javascript não são reconhecidas
+
+        api_key   = código do cliente
+        authorize = opcional, caso seja true, loga-se automaticamente se o cookie existir quando o o SDK é inicializado
+        on_load   = opcional, nome da função que será executada caso o script seja executado com sucesso
+        lang      = opcional, idioma do SDK pt_BR, en_US, ...
+        scope     = opcional, define as permissões de visualização dos dados. O e-mail não está nas permissões básicas
+    -->
+    <script type="text/javascript" src="//platform.linkedin.com/in.js">
+        api_key:   seu-app-id
+        authorize: true
+        lang:      pt_BR
+        scope:     r_basicprofile r_emailaddress
+        onLoad:    onLoad
+    </script>
+</head>
+<body>
+    <p><a href="04-get-perfil.html">Get Perfil</a></p>
+    <p><a href="../02-sdk-js/">Retornar ao indice</a></p>
+
+    <script type="text/javascript">
+        // função que será carregada assim que o SDK iniciar
+        function onLoad() {
+            console.log("Usuário conectado com o Linkedin: ", IN.User.isAuthorized());
+        }
+    </script>
+</body>
+</html>
