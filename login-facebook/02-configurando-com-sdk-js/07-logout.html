@@ -2,15 +2,24 @@
 <html>
     <head>
         <title>Login Facebook: logout</title>
-    </head>
-    <body>
-        <!-- mostra o status da conexão -->
-        <div id="fb-status"></div>
-
-        <p><a href='#' onclick='logout();'>Sair</a></p>
 
         <!-- App id do Facebook -->
         <script type="text/javascript" src="../app-id.js"></script>
+    </head>
+    <body>
+        <p><a href='#' onclick='logout();'>Sair</a></p>
+
+        <p><a href="../02-configurando-com-sdk-js/">Retornar ao indice</a></p>
+
+        <!-- função do link logout do Facebook -->
+        <script type="text/javascript">
+            function logout() {
+                FB.logout(function (response) {
+                    console.log(response);
+                    window.location = "07-logout.html";
+                });
+            }
+        </script>
 
         <!-- inicialização do script -->
         <script type="text/javascript">
@@ -23,11 +32,9 @@
                 });
                 FB.AppEvents.logPageView();
 
-                // checa o status do login ao carregar a página
+                // checa o status do login pelo access_token
                 FB.getLoginStatus(function(response) {
                     console.log("getLoginStatus():", response);
-                    // imprime na tela o status da conexão com o Facebook
-                    document.getElementById("fb-status").innerHTML = response.status;
                 });
             };
 
@@ -46,14 +53,5 @@
             }(document, 'script', 'facebook-jssdk'));
         </script>
 
-        <!-- função do link logout do Facebook -->
-        <script type="text/javascript">
-            function logout() {
-                FB.logout(function (response) {
-                    console.log(response);
-                    window.location = "07-logout.html";
-                });
-            }
-        </script>
     </body>
 </html>

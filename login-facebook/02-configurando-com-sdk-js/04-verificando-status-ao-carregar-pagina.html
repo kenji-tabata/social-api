@@ -2,13 +2,14 @@
 <html>
     <head>
         <title>Login Facebook: Status</title>
-    </head>
-    <body>
-        <!-- mostra o status da conexão -->
-        <div id="fb-status"></div>
 
         <!-- App id do Facebook -->
         <script type="text/javascript" src="../app-id.js"></script>
+    </head>
+    <body>
+
+        <p><a href="05-carregando-nome.html">Carregando nome</a></p>
+        <p><a href="../02-configurando-com-sdk-js/">Retornar ao indice</a></p>
 
         <!-- inicialização do script -->
         <script type="text/javascript">
@@ -21,11 +22,10 @@
                 });
                 FB.AppEvents.logPageView();
 
-                // checa o status do login ao carregar a página
+                // checa o status do login pelo access_token
                 FB.getLoginStatus(function(response) {
-                    console.log("getLoginStatus():", response);
                     // imprime na tela o status da conexão com o Facebook
-                    document.getElementById("fb-status").innerHTML = response.status;
+                    console.log("getLoginStatus():", response);
                 });
             };
 

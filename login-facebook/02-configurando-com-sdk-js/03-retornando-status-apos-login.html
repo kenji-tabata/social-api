@@ -2,17 +2,29 @@
 <html>
     <head>
         <title>Login Facebook: Botão Status</title>
+
+        <!-- App id do Facebook -->
+        <script type="text/javascript" src="../app-id.js"></script>
     </head>
     <body>
+
         <!-- botão de login do facebook, com as permissões públicas -->
         <fb:login-button id="fb-btn-login" scope="public_profile,email" onlogin="checkLoginState();">
         </fb:login-button>
 
-        <!-- mostra o status da conexão -->
-        <div id="fb-status"></div>
+        <p><a href="04-verificando-status-ao-carregar-pagina.html">Status ao carregar a página</a></p>
+        <p><a href="../02-configurando-com-sdk-js/">Retornar ao indice</a></p>
 
-        <!-- App id do Facebook -->
-        <script type="text/javascript" src="../app-id.js"></script>
+        <!-- checa o status da conexão ao clicar no botão de login -->
+        <script type="text/javascript">
+            function checkLoginState() {
+                // retorna o status da conexão com o Facebook
+                FB.getLoginStatus(function(response) {
+                    // imprime o status da conexão com o Facebook na tela
+                    console.log("checkLoginState():", response);
+                });
+            }
+        </script>
 
         <!-- inicialização do script -->
         <script type="text/javascript">
@@ -41,16 +53,5 @@
             }(document, 'script', 'facebook-jssdk'));
         </script>
 
-        <!-- checa o status da conexão ao clicar no botão de login -->
-        <script type="text/javascript">
-            function checkLoginState() {
-                // retorna o status da conexão com o Facebook
-                FB.getLoginStatus(function(response) {
-                    // imprime o status da conexão com o Facebook na tela
-                    document.getElementById("fb-status").innerHTML = "<p>" + response.status + "</p>";
-                    console.log("checkLoginState():", response);
-                });
-            }
-        </script>
     </body>
 </html>
