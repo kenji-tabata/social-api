@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Facebook: Popup Login</title>
+
+        <!-- App id do Facebook -->
+        <script type="text/javascript" src="../app-id.js"></script>
+    </head>
+    <body>
+
+        <!-- botão de login do facebook, com as permissões públicas -->
+        <button id="fb-btn-login" onclick="popup_login()">Conectar com o Facebook</button>
+
+        <p><a href="../02-configurando-com-sdk-js/">Retornar ao indice</a></p>
+
+        <!-- botão de login -->
+        <script type="text/javascript">
+            function popup_login () {
+                // Login
+                FB.login( function(resp) {
+                    console.log(resp);
+                },
+                // permissões para visualizar informação
+                {scope: 'public_profile,email'});
+            }
+        </script>
+
+        <!-- inicialização do script -->
+        <script type="text/javascript">
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : app_id,
+                    cookie     : true,
+                    xfbml      : true,
+                    version    : 'v3.0'
+                });
+                FB.AppEvents.logPageView();
+            };
+
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+
+                js = d.createElement(s); js.id = id;
+                // sdk padrão em português
+                js.src = "https://connect.facebook.net/pt_BR/sdk.js";
+
+                // sdk com debug em português
+                // js.src = "https://connect.facebook.net/pt_BR/sdk/debug.js";
+
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+    </body>
+</html>

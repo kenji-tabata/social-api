@@ -1,22 +1,45 @@
 <?php
 
-require "app/boot.php";
+require "../sdk-php/boot.php";
 
-if (!isset($_SESSION['accessToken'])) {
-    echo "<p>O accessToken não foi encontrado!</p>";
-    echo "<p><a href='04-carregar-nome.php'>Carregar nome</a></p>";
-    echo "<p><a href='$url/'>Retornar</a></p>";
+#
+# GET: Access token
+#
+$helper = $fb->getRedirectLoginHelper();
+
+try {
+    $accessToken = $helper->getAccessToken();
+} catch(Facebook\Exceptions\FacebookResponseException $e) {
+    # When Graph returns an error
+    echo 'Graph returned an error: ' . $e->getMessage();
+    exit;
+} catch(Facebook\Exceptions\FacebookSDKException $e) {
+    # When validation fails or other local issues
+    echo 'Facebook SDK returned an error: ' . $e->getMessage();
     exit;
 }
 
-$accessToken = $_SESSION['accessToken'];
+if (! isset($accessToken)) {
+    if ($helper->getError()) {
+        header('HTTP/1.0 401 Unauthorized');
+        echo "Error: " . $helper->getError() . "\n";
+        echo "Error Code: " . $helper->getErrorCode() . "\n";
+        echo "Error Reason: " . $helper->getErrorReason() . "\n";
+        echo "Error Description: " . $helper->getErrorDescription() . "\n";
+    } else {
+        header('HTTP/1.0 400 Bad Request');
+        echo 'Bad request';
+    }
+    exit;
+}
 
-# remove o objeto accessToken
-unset($_SESSION['accessToken']);
+#
+# Inspencionar Access token
+#
 
 // Log in
 echo "<h3>Access Token</h3>";
-echo $accessToken->getValue();
+var_dump($accessToken->getValue());
 
 // The OAuth 2.0 client handler helps us manage access tokens
 $oAuth2Client = $fb->getOAuth2Client();
@@ -45,8 +68,10 @@ if (! $accessToken->isLongLived()) {
   var_dump($accessToken->getValue());
 }
 
+#
 # adiciona o valor do Access Token (usuário conectado com o Facebook)
+#
 $_SESSION['fbAccessToken'] = (string) $accessToken;
 
-echo "<p><a href='04-carregar-nome.php'>Carregar nome</a></p>";
-echo "<p><a href='$url/'>Retornar</a></p>";
+echo "<p><a href='03-get-perfil.php'>Continuar</a></p>";
+echo "<p><a href='$home/'>Retornar</a></p>";
