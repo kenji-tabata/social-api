@@ -1,6 +1,6 @@
 <?php
 
-require "boot.php";
+require "../boot.php";
 
 if (!isset($_SESSION['access_token'])) {
     echo "<p>Nenhum parametro encontrado!</p>";
@@ -9,8 +9,7 @@ if (!isset($_SESSION['access_token'])) {
 }
 
 $url = "https://graph.facebook.com/me?"
-     . "fields=id,name,email,picture"
-     . "&access_token={$_SESSION['access_token']}";
+     . "access_token={$_SESSION['access_token']}";
 
 echo "<h3>Url</h3>";
 var_dump($url);
@@ -33,5 +32,4 @@ echo "<h3>Resposta</h3>";
 $resultado = json_decode($resultado);
 var_dump($resultado);
 
-echo "<p><a href='07-permissoes.php'>Visualizar permissões</a></p>";
 echo "<p><a href='$home/'>Retornar</a></p>";

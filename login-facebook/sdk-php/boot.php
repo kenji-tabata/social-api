@@ -3,7 +3,7 @@
 #
 # boot padrão
 #
-require "boot.php";
+require "../boot.php";
 
 #
 # SDK PHP

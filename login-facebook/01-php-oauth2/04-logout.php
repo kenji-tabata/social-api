@@ -1,6 +1,6 @@
 <?php
 
-require "boot.php";
+require "../boot.php";
 
 if (!isset($_SESSION['access_token'])) {
     echo "<p>Nenhum parametro encontrado!</p>";
@@ -17,4 +17,4 @@ var_dump($url);
 
 session_destroy();
 
-header("Location: $url");
+header("Location: 01-botao-login.php");

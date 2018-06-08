@@ -1,6 +1,6 @@
 <?php
 
-require "boot.php";
+require "../boot.php";
 
 if (!isset($_SESSION['access_token'])) {
     echo "<p>Nenhum parametro encontrado!</p>";
