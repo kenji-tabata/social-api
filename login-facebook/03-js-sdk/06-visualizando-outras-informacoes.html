@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login Facebook: Nome</title>
+        <title>Login Facebook: Informações</title>
 
         <!-- App id do Facebook -->
-        <script type="text/javascript" src="../app-id.js"></script>
+        <script type="text/javascript" src="../boot.js"></script>
     </head>
     <body>
 
-        <p><a href="06-visualizando-outras-informacoes.html">Visualizando outras informações</a></p>
-        <p><a href="../02-configurando-com-sdk-js/">Retornar ao indice</a></p>
+        <p><a href="07-logout.html">Link para o logout</a></p>
+        <p><a href="../03-js-sdk/">Retornar ao indice</a></p>
 
         <!-- verifica se o usuário esta ou não conectado no Facebook -->
         <script type="text/javascript">
@@ -18,9 +18,8 @@
 
                 // se estiver conectado no Facebook...
                 if (response.status == "connected") {
-                    // carrega somente o nome do usuário logado
-                    FB.api('/me', function (response) {
-                        // imprime na tela a mensagem com o nome do usuário logado
+                    // carrega o nome, e-mail e foto do usuário logado
+                    FB.api('/me', {fields: 'name, email, picture'}, function (response) {
                         console.log("logado:", response);
                     });
                 }
@@ -45,7 +44,6 @@
                 // checa o status do login pelo access_token
                 FB.getLoginStatus(function(response) {
                     console.log("getLoginStatus():", response);
-                    // callback do status do Facebook
                     statusChangeCallback(response);
                 });
             };
@@ -64,6 +62,5 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
-
     </body>
 </html>

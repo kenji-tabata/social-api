@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login Facebook: Status</title>
+        <title>Login Facebook: Nome</title>
 
         <!-- App id do Facebook -->
-        <script type="text/javascript" src="../app-id.js"></script>
+        <script type="text/javascript" src="../boot.js"></script>
     </head>
     <body>
 
-        <p><a href="05-carregando-nome.html">Carregando nome</a></p>
-        <p><a href="../02-configurando-com-sdk-js/">Retornar ao indice</a></p>
+        <p><a href="06-visualizando-outras-informacoes.html">Visualizando outras informações</a></p>
+        <p><a href="../03-js-sdk/">Retornar ao indice</a></p>
+
+        <!-- verifica se o usuário esta ou não conectado no Facebook -->
+        <script type="text/javascript">
+            function statusChangeCallback(response) {
+                console.log("statusChangeCallback():", response);
+
+                // se estiver conectado no Facebook...
+                if (response.status == "connected") {
+                    // carrega somente o nome do usuário logado
+                    FB.api('/me', function (response) {
+                        // imprime na tela a mensagem com o nome do usuário logado
+                        console.log("logado:", response);
+                    });
+                }
+                // se não estiver conectado no Facebook...
+                else {
+                    console.log("não logado:");
+                }
+            }
+        </script>
 
         <!-- inicialização do script -->
         <script type="text/javascript">
@@ -24,8 +44,9 @@
 
                 // checa o status do login pelo access_token
                 FB.getLoginStatus(function(response) {
-                    // imprime na tela o status da conexão com o Facebook
                     console.log("getLoginStatus():", response);
+                    // callback do status do Facebook
+                    statusChangeCallback(response);
                 });
             };
 
@@ -43,5 +64,6 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
+
     </body>
 </html>

@@ -1,29 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login Facebook: Popup Login</title>
+        <title>Login Facebook: Status</title>
 
         <!-- App id do Facebook -->
-        <script type="text/javascript" src="../app-id.js"></script>
+        <script type="text/javascript" src="../boot.js"></script>
     </head>
     <body>
 
-        <!-- botão de login do facebook, com as permissões públicas -->
-        <button id="fb-btn-login" onclick="popup_login()">Conectar com o Facebook</button>
-
-        <p><a href="../02-configurando-com-sdk-js/">Retornar ao indice</a></p>
-
-        <!-- botão de login -->
-        <script type="text/javascript">
-            function popup_login () {
-                // Login
-                FB.login( function(resp) {
-                    console.log(resp);
-                },
-                // permissões para visualizar informação
-                {scope: 'public_profile,email'});
-            }
-        </script>
+        <p><a href="05-carregando-nome.html">Carregando nome</a></p>
+        <p><a href="../03-js-sdk/">Retornar ao indice</a></p>
 
         <!-- inicialização do script -->
         <script type="text/javascript">
@@ -35,6 +21,12 @@
                     version    : 'v3.0'
                 });
                 FB.AppEvents.logPageView();
+
+                // checa o status do login pelo access_token
+                FB.getLoginStatus(function(response) {
+                    // imprime na tela o status da conexão com o Facebook
+                    console.log("getLoginStatus():", response);
+                });
             };
 
             (function(d, s, id) {
