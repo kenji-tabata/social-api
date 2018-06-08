@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Login Facebook</title>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    </head>
+    <body>
+
+        <div class="container">
+            <h1>Exemplos de botões gerados pelo Facebook</h1>
+            <p>
+                Com o SDK em Javascript é possível utilizar os botões gerados pelo Facebook. O botão pode ser personalizado
+                 ao gerar o seu código.
+            </p>
+            <p>Veja como gerar um botão em: <a href="https://developers.facebook.com/docs/facebook-login/web#loginbutton">
+                https://developers.facebook.com/docs/facebook-login/web#loginbutton</a>
+            </p>
+            <div class="row">
+                <div class="col-md-4">
+                    <h5><strong>Botão simples</strong></h5>
+                    <p>
+                        <div class="fb-login-button" data-width="358" data-max-rows="1" data-size="large"
+                        data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false"
+                        data-use-continue-as="false" onlogin="checkStatus()"></div>
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <h5><strong>Botão com nome e foto do perfil (se logado)</strong></h5>
+                    <p>
+                        <div class="fb-login-button" data-width="358" data-max-rows="1" data-size="large"
+                        data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false"
+                        data-use-continue-as="true" onlogin="checkStatus()"></div>
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <h5><strong>Botão com a opção sair (se logado)</strong></h5>
+                    <p>
+                        <div class="fb-login-button" data-width="358" data-max-rows="1" data-size="large"
+                        data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true"
+                        data-use-continue-as="true" onlogin="checkStatus()"></div>
+                    </p>
+                </div>
+            </div>
+        </div> <!-- /container -->
+
+        <!-- checando se esta logado -->
+        <script type="text/javascript">
+            function checkStatus() {
+                FB.getLoginStatus( function(resp) {
+                    console.log(resp);
+                    window.location.reload();
+                });
+            }
+
+        </script>
+
+        <!-- boot js -->
+        <script type="text/javascript" src="../boot.js"></script>
+
+        <!-- Facebook SDK -->
+        <div id="fb-root"></div>
+        <script type="text/javascript">
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v3.0&appId=' + app_id;
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+    </body>
+</html>
