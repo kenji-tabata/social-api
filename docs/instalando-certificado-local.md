@@ -1,5 +1,10 @@
 # Instalando certificado na máquina local
 
+Para utilizar os recursos do login por redes sociais, é preciso que o domínio do site tenha instalado um certificado
+ digital (SSL) para as requisições e redirecionamentos da API funcionarem corretamente, isso vale também quando estiver
+ testando no ambiênte de desenvolvimento (máquina local ou virtual).
+
+
 __Instalando no Centos__
 
     // instalando mod_ssl
