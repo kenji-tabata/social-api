@@ -1,6 +1,7 @@
 <?php
 
-require "../sdk-php/boot.php";
+require "../../app-facebook/boot.php";
+require "../../app-facebook/sdk-php/boot.php";
 
 $helper = $fb->getRedirectLoginHelper();
 
@@ -25,7 +26,7 @@ $loginUrl = $helper->getLoginUrl($home . "/02-login-callback.php", $permissions)
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
         <!-- Css -->
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../../css/style.css">
     </head>
     <body>
         <div class="container">

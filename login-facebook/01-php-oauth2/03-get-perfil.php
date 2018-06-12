@@ -1,6 +1,6 @@
 <?php
 
-require "../boot.php";
+require "../../app-facebook/boot.php";
 
 if (!isset($_SESSION['access_token'])) {
     echo "<p>Nenhum parametro encontrado!</p>";
@@ -48,7 +48,7 @@ $resultado = json_decode($resultado);
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
         <!-- Css -->
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../../css/style.css">
     </head>
     <body>
 

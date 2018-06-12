@@ -1,6 +1,7 @@
 <?php
 
-require "../sdk-php/boot.php";
+require "../../app-facebook/boot.php";
+require "../../app-facebook/sdk-php/boot.php";
 
 #
 # GET: Access token

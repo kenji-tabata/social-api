@@ -1,6 +1,6 @@
 <?php
 
-require "../boot.php";
+require "../../app-facebook/boot.php";
 
 $redirect = getUrl() . "/02-login-callback.php";
 $state    = 'indentificador-csrf';
@@ -31,7 +31,7 @@ $url = "https://www.facebook.com/v3.0/dialog/oauth?"
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
         <!-- Css -->
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../../css/style.css">
     </head>
     <body>
 

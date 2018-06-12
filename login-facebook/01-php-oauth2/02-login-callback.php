@@ -1,6 +1,6 @@
 <?php
 
-require "../boot.php";
+require "../../app-facebook/boot.php";
 
 if (isset($_GET['error'])) {
     echo "<h3>Facebook error</h3>";
