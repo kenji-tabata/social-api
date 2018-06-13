@@ -1,6 +1,6 @@
 <?php
 
-require "../app-facebook/boot.php";
+require "../app/boot.php";
 
 $redirect = $home . "/12-linkedin-token.php";
 

@@ -3,7 +3,7 @@
 #
 # boot
 #
-require "../app-facebook/boot.php";
+require "../app/boot.php";
 
 # recebe o código de autorização e state pela url
 echo "<h3>Get params</h3>";

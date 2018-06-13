@@ -1,7 +1,7 @@
 <?php
 
-require "../../app-facebook/boot.php";
-require "../../app-facebook/sdk-php/boot.php";
+require "../../app/boot.php";
+require "../../app/sdk-php/boot.php";
 
 
 if (!isset($_SESSION['fbAccessToken'])) {

@@ -1,7 +1,7 @@
 <?php
 
-require "../app-facebook/boot.php";
-require "../app-facebook/sdk-php/db.php";
+require "../app/boot.php";
+require "../app/sdk-php/db.php";
 
 var_dump($_POST);
 

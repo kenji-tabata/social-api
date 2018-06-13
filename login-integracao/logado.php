@@ -1,7 +1,7 @@
 <?php
 
-require "../app-facebook/boot.php";
-include "../app-facebook/sdk-php/boot.php";
+require "../app/boot.php";
+include "../app/sdk-php/boot.php";
 
 if (!isset($_SESSION['usuario']['id'])) {
     var_dump($_SESSION);

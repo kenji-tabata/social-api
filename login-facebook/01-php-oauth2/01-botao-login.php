@@ -1,6 +1,6 @@
 <?php
 
-require "../../app-facebook/boot.php";
+require "../../app/boot.php";
 
 $redirect = getUrl() . "/02-login-callback.php";
 $state    = 'indentificador-csrf';

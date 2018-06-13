@@ -1,6 +1,6 @@
 <?php
 
-require "../../app-facebook/boot.php";
+require "../../app/boot.php";
 
 if (!isset($_SESSION['access_token'])) {
     echo "<p>Nenhum parametro encontrado!</p>";

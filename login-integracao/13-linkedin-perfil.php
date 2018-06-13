@@ -2,7 +2,7 @@
 #
 # boot
 #
-require "../app-facebook/boot.php";
+require "../app/boot.php";
 
 # se o token de acesso não existir
 if (!isset($_SESSION['ldAccessToken'])) {

@@ -1,7 +1,7 @@
 <?php
 
-require "../app-facebook/boot.php";
-require "../app-facebook/db.php";
+require "../app/boot.php";
+require "../app/db.php";
 
 if (!isset($_SESSION['fbPerfil'])) {
     echo "<p>O fbPerfil não foi encontrado!</p>";
