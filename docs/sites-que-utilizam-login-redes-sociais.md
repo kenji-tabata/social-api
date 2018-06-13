@@ -1,5 +1,61 @@
 # Sites que utilizam o recurso do Login das redes sociais
 
+http://www.mindmeister.com/
+
+__Login de rede social:__ Facebook, Google, Office 365, Twitter, Biggerplate
+
+- ao acessar pela primeira vez por rede social, é criado a conta do sistema;
+- uma vez que a conta foi criada por rede social, o e-mail não pode ser utilizado novamente para criar uma nova conta;
+- tem a opção para conectar outras redes sociais em Minha conta;
+- opção para desconectar a conta da rede social, após definir uma senha;
+- a sistema pode ser acessado com o e-mail da conta e com o e-mail do Facebook, mesmo que diferentes, após conectar
+ a conta do Facebook em Minhas configurações;
+- mesmo se a conta do Facebook não esteja vinculada na conta do sistema, é possível fazer o login do Facebook na conta,
+ desde que permita o seu acesso (isso tanto no cadastrar quanto em login).
+
+
+http://www.powtoon.com/
+
+__Login de rede social:__ Facebook, Google, Linkedin
+
+- após o logar pela primeira vez com o Linkedin, não consigo logar novamente com a conta. É preciso remover o app no
+ Linkedin para acessar novamente. Isso ocorreu somente nas primeiras tentativas;
+- foi possível cadastrar as duas contas (Linkedin e Facebook) com o mesmo e-mail, mas não permite criar uma nova conta
+ do sistema com o mesmo e-mail;
+- ao criar uma conta com o Linkedin e definindo uma senha, mas o acesso não é liberado, só funcionou com o Facebook;
+- não tem a opção de desconectar contas das redes sociais;
+
+- desenvolvido em Python, abaixo está a sequência de como foi descoberto;
+    - acesse a conta com o e-mail do linkedin e a senha definida nas configurações, será retornado um erro de conta inválida;
+    - clique em redefinir a senha com o mesmo e-mail do linkedin, será retornado o erro de e-mail inexistente;
+    - atualize a página e será retornado o erro 403 (CSRF);
+
+
+
+https://www.hotmart.com/pt/
+
+__Login de rede social:__ Facebook
+
+- criar uma nova conta com o e-mail do Facebook;
+- após o login do Facebook, os dados são adicionado no formulário. Isso obriga o usuário adicionar uma senha;
+- mesmo cadastrando com o Facebook, é preciso vincular manualmente a conta do Facebook para acessar com ela;
+- depois de criar a conta pelo Entrar com o Facebook, não é possível acessar o sistema pelo Facebook, o acesso só é
+ permitido após vincular Facebook na conta;
+- permite desconectar e conectar do Facebook nas configurações;
+
+
+
+https://bubbl.us
+
+__Login de rede social:__ Facebook, Google
+
+- cria uma nova conta com o e-mail da rede social;
+- faz o login do sistema pela conta do Facebook;
+- não tem a opção para desconectar da rede social
+- pode acessar a conta com o e-mail, após definir uma senha;
+
+
+
 https://www.catarse.me/pt
 
 __Login de rede social:__ Facebook
