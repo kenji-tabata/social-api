@@ -1,8 +1,8 @@
 <?php
 
 $host = "192.168.0.110";
-$user = "sdd";
-$pass = "881ezo";
+$user = "user";
+$pass = "9kw5Y9wS";
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=social_app", $user, $pass);

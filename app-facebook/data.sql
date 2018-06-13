@@ -4,8 +4,8 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `email` varchar(255) DEFAULT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `senha` varchar(100) DEFAULT NULL,
-  `facebook` tinyint(3) unsigned DEFAULT NULL,
-  `linkedin` tinyint(3) unsigned DEFAULT NULL
+  `facebook_id` varchar(100) DEFAULT NULL,
+  `linkedin_id` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE `usuarios`
