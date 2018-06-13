@@ -1,6 +1,7 @@
 <?php
 
-require "app/boot.php";
+require "../app-facebook/boot.php";
+require "../app-facebook/sdk-php/boot.php";
 
 $helper = $fb->getJavaScriptHelper();
 
@@ -23,8 +24,5 @@ if (! isset($accessToken)) {
 
 $_SESSION['fbAccessToken'] = (string) $accessToken;
 
-# Login somente com o Facebook
-header("Location: logado.php");
-
-# Carrega os dados do Facebook para cadastrar no sistema
-// header("Location: cadastrar.php");
+# callback do perfil do Facebook
+header("Location: 02-facebook-perfil.php");
