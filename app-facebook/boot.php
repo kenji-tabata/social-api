@@ -6,6 +6,13 @@
 $app_id     = "{seu-app-id}";
 $app_secret = "{seu-app-secret}";
 
+#
+#
+#
+$client_id     = "{seu-client-id}";
+$client_secret = "{seu-client-secret}";
+$permissions   = "r_basicprofile r_emailaddress";
+
 
 #
 # Timezone
