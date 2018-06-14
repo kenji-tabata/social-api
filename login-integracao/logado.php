@@ -56,13 +56,13 @@ if (!isset($_SESSION['usuario']['id'])) {
                 <div class="col-md-offset-2 col-md-4 login-box">
                     <div class="form-group">
                         <p>
-                            <button id="btn-facebook" class="btn btn-lg btn-primary btn-block">
+                            <button id="btn-facebook-disconect" class="btn btn-lg btn-primary btn-block">
                                 <i class="fab fa-facebook"></i>
                                 <?php echo $_SESSION['usuario']['facebook_id'] ? "Desvincular Facebook" : "Vincular Facebook"; ?>
                             </button>
                         </p>
                         <p>
-                            <button id="btn-linkedin" class="btn btn-lg btn-info btn-block">
+                            <button id="btn-linkedin-disconnect" class="btn btn-lg btn-info btn-block">
                                 <i class="fab fa-linkedin"></i>
                                 <?php echo $_SESSION['usuario']['linkedin_id'] ? "Desvincular Linkedin" : "Vincular Linkedin"; ?>
                             </button>
@@ -83,5 +83,11 @@ if (!isset($_SESSION['usuario']['id'])) {
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <!-- App id do Facebook -->
+        <script type="text/javascript" src="../app/boot.js"></script>
+
+        <!-- Facebook SDK -->
+        <script type="text/javascript" src="sdk.js"></script>
     </body>
 </html>

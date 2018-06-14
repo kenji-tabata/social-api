@@ -41,6 +41,18 @@ window.fbAsyncInit = function() {
     });
 };
 
+//
+//
+//
+$("#btn-facebook-disconect").on('click', function (event) {
+    event.preventDefault();
+
+    FB.api("/me/permissions", "DELETE", function (resp) {
+        console.log(resp);
+        window.location = "desvincular-facebook.php";
+    });
+});
+
 (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) {return;}
